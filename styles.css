@@ -145,6 +145,14 @@ label {
   justify-self: center;
 }
 
+#btn-close-modal {
+  height: 2.5rem;
+  width: auto;
+  justify-self: end;
+  position: absolute;
+  margin: 8px;
+}
+
 .open {
   position: fixed;
   top: 0;
