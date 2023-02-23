@@ -39,8 +39,6 @@ function generateCard(book) {
   // Children of bookStats
   const numberOfPages = document.createElement("h3");
   numberOfPages.textContent = book.numOfPages;
-  const hasRead = document.createElement("h3");
-  hasRead.textContent = book.hasRead;
 
   // Children of cardIcons
   const icon1 = document.createElement("img");
@@ -65,6 +63,8 @@ const book1 = new Book(
   "Harry Potter and the Goblet of Fire is a fantasy novel written by British author......."
 );
 
+function showForm() {}
+
 myLibrary.push(book1);
 console.log(myLibrary);
 
@@ -74,4 +74,4 @@ function displayBooksToLibrary() {
   });
 }
 
-btnAddBook.addEventListener("click", displayBooksToLibrary);
+btnAddBook.addEventListener("click", showForm);
