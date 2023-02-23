@@ -1,7 +1,8 @@
 const libraryContainer = document.querySelector(".cards-container");
-const btnAddBook = document.querySelector(".btn.add-book");
 const modalContent = document.querySelector(".modal");
 const modalBG = document.querySelector(".modal-bg");
+const btnAddBook = document.querySelector(".btn.add-book");
+const btnCloseModal = document.querySelector("#btn-close-modal");
 
 const myLibrary = [];
 
@@ -79,4 +80,9 @@ function displayBooksToLibrary() {
 btnAddBook.addEventListener("click", () => {
   modalContent.classList.remove("hidden");
   modalBG.classList.remove("hidden");
+});
+
+btnCloseModal.addEventListener("click", () => {
+  modalContent.classList.add("hidden");
+  modalBG.classList.add("hidden");
 });
