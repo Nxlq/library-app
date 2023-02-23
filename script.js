@@ -66,8 +66,6 @@ const book1 = new Book(
   "Harry Potter and the Goblet of Fire is a fantasy novel written by British author......."
 );
 
-function showForm() {}
-
 myLibrary.push(book1);
 console.log(myLibrary);
 
@@ -77,12 +75,30 @@ function displayBooksToLibrary() {
   });
 }
 
-btnAddBook.addEventListener("click", () => {
+function hideModal() {
+  modalContent.classList.add("hidden");
+  modalBG.classList.add("hidden");
+}
+
+function showModal() {
   modalContent.classList.remove("hidden");
   modalBG.classList.remove("hidden");
+}
+
+btnAddBook.addEventListener("click", () => {
+  showModal();
 });
 
 btnCloseModal.addEventListener("click", () => {
-  modalContent.classList.add("hidden");
-  modalBG.classList.add("hidden");
+  hideModal();
+});
+
+modalContent.addEventListener("keydown", (e) => {
+  console.log(e);
+});
+
+window.addEventListener("keydown", (e) => {
+  if (!modalBG.classList.contains("hidden") && e.code === "Escape") {
+    hideModal();
+  }
 });

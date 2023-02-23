@@ -29,11 +29,16 @@ header {
 .btn {
   height: 50px;
   width: 150px;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   margin: 40px 0px;
   font-size: 15px;
   font-weight: 700;
   border-radius: 5px;
+}
+
+.btn:hover,
+.btn.submit-book:hover {
+  background-color: rgb(81, 249, 143);
 }
 
 .cards-container {
@@ -151,17 +156,6 @@ label {
   justify-self: end;
   position: absolute;
   margin: 8px;
-}
-
-.open {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1040;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(15px);
 }
 
 .hidden {
