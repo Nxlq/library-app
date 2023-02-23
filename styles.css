@@ -35,6 +35,10 @@ header {
   border-radius: 5px;
 }
 
+.cards-container {
+  outline: solid 1px black;
+}
+
 .card {
   background-color: white;
   border: solid 3px #6d747f;
@@ -61,7 +65,7 @@ header {
   overflow: auto;
 }
 
-#card-author {
+.card-author {
   color: var(--book-author-color);
 }
 
