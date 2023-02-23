@@ -10,7 +10,10 @@
   </head>
   <body>
     <header>
-      <h1>Hi There 🧙‍♂️📚📚 Welcome To My Library</h1>
+      <h1>
+        Hi There 🧙‍♂️📚📚 <br />
+        Welcome To My Library
+      </h1>
       <button id="btn-add-book">Add Book</button>
     </header>
     <main>
@@ -48,6 +51,40 @@
         </div>
       </div>
     </main>
+    <div class="modal-bg hidden">
+      <form class="modal hidden" action="" method="">
+        <h2 class="form-header">Enter your book's information</h2>
+        <input
+          type="text"
+          id="title-input"
+          name="book_title"
+          placeholder="Book Title"
+        />
+        <input
+          type="text"
+          id="author-input"
+          name="author"
+          placeholder="Author's Name"
+        />
+        <input
+          type="number"
+          id="numPages-input"
+          name="numOfPages"
+          placeholder="Number of Pages"
+        />
+        <div id="description-div">
+          <label for="description-input"
+            >A brief description of this book:</label
+          >
+          <textarea
+            type="textarea"
+            id="description-input"
+            name="book_description"
+          >
+          </textarea>
+        </div>
+      </form>
+    </div>
     <footer></footer>
   </body>
 </html>
