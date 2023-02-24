@@ -83,11 +83,20 @@ function displayBooksFromLibrary() {
   });
 }
 
+function initModalForm() {
+  formInputs.forEach((input) => {
+    input.value = "";
+    input.classList.remove("error", "valid");
+  });
+  descriptionInput.value = "";
+  descriptionInput.classList.remove("error", "valid");
+}
+
 function hideModal() {
   modalContent.classList.add("hidden");
   modalBG.classList.add("hidden");
+  initModalForm();
 }
-
 function showModal() {
   modalContent.classList.remove("hidden");
   modalBG.classList.remove("hidden");
@@ -110,6 +119,10 @@ function checkFormValidation(el) {
     return;
   }
   validateEl(el);
+}
+
+function displayLastBook() {
+  libraryContainer.append(generateCard(myLibrary[myLibrary.length - 1]));
 }
 
 btnAddBook.addEventListener("click", () => {
@@ -143,8 +156,10 @@ btnSubmitBook.addEventListener("click", (e) => {
         descriptionInput.value.trim()
       )
     );
+    console.log(myLibrary);
+    hideModal();
+    displayLastBook();
   }
-  console.log(myLibrary);
 });
 
 descriptionInput.addEventListener("change", () => {
