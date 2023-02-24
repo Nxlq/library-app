@@ -12,7 +12,7 @@ const numPagesInput = document.querySelector("#numPages-input");
 
 const myLibrary = [];
 
-const isFormValid = false;
+let isFormValid = false;
 
 function Book(title, author, numOfPages, description) {
   this.title = title;
@@ -93,22 +93,23 @@ function showModal() {
   modalBG.classList.remove("hidden");
 }
 
-function invalidateForm(el) {
+function invalidateEl(el) {
   el.classList.remove("valid");
   el.classList.add("error");
 }
 
-function validateForm(el) {
+function validateEl(el) {
   el.classList.remove("error");
   el.classList.add("valid");
 }
 
 function checkFormValidation(el) {
   if (el.value.trim() === "") {
-    invalidateForm(el);
+    invalidateEl(el);
+    isFormValid = false;
     return;
   }
-  validateForm(el);
+  validateEl(el);
 }
 
 btnAddBook.addEventListener("click", () => {
@@ -126,13 +127,15 @@ window.addEventListener("keydown", (e) => {
 });
 
 btnSubmitBook.addEventListener("click", (e) => {
+  isFormValid = true;
   e.preventDefault();
-  checkFormValidation(descriptionInput);
+  // validate in order of form inputs
   checkFormValidation(titleInput);
   checkFormValidation(authorInput);
   checkFormValidation(numPagesInput);
+  checkFormValidation(descriptionInput);
   if (isFormValid) {
-    // push new book obj into library based on form data
+    console.log("form valid");
     // display book to library
   }
 });
