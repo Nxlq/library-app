@@ -3,8 +3,16 @@ const modalContent = document.querySelector(".modal");
 const modalBG = document.querySelector(".modal-bg");
 const btnAddBook = document.querySelector(".btn.add-book");
 const btnCloseModal = document.querySelector("#btn-close-modal");
+const btnSubmitBook = document.querySelector(".btn.submit-book");
+const descriptionInput = document.querySelector("#description-input");
+const formInputs = document.querySelectorAll("input");
+const titleInput = document.querySelector("#title-input");
+const authorInput = document.querySelector("#author-input");
+const numPagesInput = document.querySelector("#numPages-input");
 
 const myLibrary = [];
+
+const isFormValid = false;
 
 function Book(title, author, numOfPages, description) {
   this.title = title;
@@ -52,7 +60,7 @@ function generateCard(book) {
   icon3.src = "images/favorite-book-svgrepo-com.svg";
 
   cardIcons.append(icon1, icon2, icon3);
-  bookStats.append(numberOfPages, hasRead);
+  bookStats.append(numberOfPages);
   cardBody.append(bookDescription, bookStats, cardIcons);
   cardHeader.append(bookTitle, author);
   card.append(cardHeader, cardBody);
@@ -69,7 +77,7 @@ const book1 = new Book(
 myLibrary.push(book1);
 console.log(myLibrary);
 
-function displayBooksToLibrary() {
+function displayBooksFromLibrary() {
   myLibrary.forEach((book) => {
     libraryContainer.append(generateCard(book));
   });
@@ -85,6 +93,24 @@ function showModal() {
   modalBG.classList.remove("hidden");
 }
 
+function invalidateForm(el) {
+  el.classList.remove("valid");
+  el.classList.add("error");
+}
+
+function validateForm(el) {
+  el.classList.remove("error");
+  el.classList.add("valid");
+}
+
+function checkFormValidation(el) {
+  if (el.value.trim() === "") {
+    invalidateForm(el);
+    return;
+  }
+  validateForm(el);
+}
+
 btnAddBook.addEventListener("click", () => {
   showModal();
 });
@@ -93,12 +119,30 @@ btnCloseModal.addEventListener("click", () => {
   hideModal();
 });
 
-modalContent.addEventListener("keydown", (e) => {
-  console.log(e);
-});
-
 window.addEventListener("keydown", (e) => {
   if (!modalBG.classList.contains("hidden") && e.code === "Escape") {
     hideModal();
   }
 });
+
+btnSubmitBook.addEventListener("click", (e) => {
+  e.preventDefault();
+  checkFormValidation(descriptionInput);
+  checkFormValidation(titleInput);
+  checkFormValidation(authorInput);
+  checkFormValidation(numPagesInput);
+  if (isFormValid) {
+    // push new book obj into library based on form data
+    // display book to library
+  }
+});
+
+descriptionInput.addEventListener("change", () => {
+  checkFormValidation(descriptionInput);
+});
+
+formInputs.forEach((input) =>
+  input.addEventListener("change", () => {
+    checkFormValidation(input);
+  })
+);
