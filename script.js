@@ -129,15 +129,22 @@ window.addEventListener("keydown", (e) => {
 btnSubmitBook.addEventListener("click", (e) => {
   isFormValid = true;
   e.preventDefault();
-  // validate in order of form inputs
   checkFormValidation(titleInput);
   checkFormValidation(authorInput);
   checkFormValidation(numPagesInput);
   checkFormValidation(descriptionInput);
   if (isFormValid) {
-    console.log("form valid");
-    // display book to library
+    // generate new Book obj and push to library arr
+    myLibrary.push(
+      new Book(
+        titleInput.value.trim(),
+        authorInput.value.trim(),
+        numPagesInput.value.trim(),
+        descriptionInput.value.trim()
+      )
+    );
   }
+  console.log(myLibrary);
 });
 
 descriptionInput.addEventListener("change", () => {
