@@ -161,3 +161,11 @@ label {
 .hidden {
   display: none;
 }
+
+.error {
+  border: solid 2px red;
+}
+
+.valid {
+  border: solid 2px rgb(67, 196, 114);
+}
