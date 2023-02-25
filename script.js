@@ -27,6 +27,9 @@ function generateCard(book) {
   card.classList.add("card");
 
   // Children of card div
+  const btnRemoveBook = document.createElement("img");
+  btnRemoveBook.classList.add("x-button", "onBook");
+  btnRemoveBook.src = "images/close-small-svgrepo-com card.svg";
   const cardHeader = document.createElement("div");
   cardHeader.classList.add("card-header");
   const cardBody = document.createElement("div");
@@ -63,7 +66,7 @@ function generateCard(book) {
   bookStats.append(numberOfPages);
   cardBody.append(bookDescription, bookStats, cardIcons);
   cardHeader.append(bookTitle, author);
-  card.append(cardHeader, cardBody);
+  card.append(btnRemoveBook, cardHeader, cardBody);
   return card;
 }
 

@@ -150,12 +150,16 @@ label {
   justify-self: center;
 }
 
-#btn-close-modal {
+.x-button {
   height: 2.5rem;
   width: auto;
   justify-self: end;
   position: absolute;
   margin: 8px;
+}
+
+.x-button.onBook {
+  margin: -20px -22px;
 }
 
 .hidden {
