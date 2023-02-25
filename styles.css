@@ -162,6 +162,16 @@ label {
   margin: -20px -22px;
 }
 
+.container-hasRead {
+  display: flex;
+  align-items: center;
+}
+
+#hasRead {
+  height: auto;
+  width: 40px;
+}
+
 .hidden {
   display: none;
 }
