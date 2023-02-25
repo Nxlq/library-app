@@ -9,6 +9,7 @@ const formInputs = document.querySelectorAll("input");
 const titleInput = document.querySelector("#title-input");
 const authorInput = document.querySelector("#author-input");
 const numPagesInput = document.querySelector("#numPages-input");
+let btnCardClose;
 
 const myLibrary = [];
 
@@ -67,6 +68,7 @@ function generateCard(book) {
   cardBody.append(bookDescription, bookStats, cardIcons);
   cardHeader.append(bookTitle, author);
   card.append(btnRemoveBook, cardHeader, cardBody);
+
   return card;
 }
 
@@ -175,3 +177,21 @@ formInputs.forEach((input) =>
     checkFormValidation(input);
   })
 );
+
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("onBook")) {
+    console.log(e.target.closest("div"));
+    const cardTitle = e.target.nextElementSibling.firstChild.textContent;
+    myLibrary.forEach((book, i) => {
+      if (book.title === cardTitle) {
+        myLibrary.splice(i, 1);
+        console.log(myLibrary);
+      }
+    });
+
+    // also needs to remove the corresponding obj from the myLibrary arr
+    e.target.closest("div").remove();
+  }
+});
+
+console.log(myLibrary);
