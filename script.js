@@ -49,7 +49,7 @@ function generateCard(book) {
 
   // Children of bookStats
   const numberOfPages = document.createElement("h3");
-  numberOfPages.textContent = book.numOfPages;
+  numberOfPages.textContent = `${book.numOfPages} Pages`;
 
   // Children of cardIcons
   const icon1 = document.createElement("img");
@@ -71,11 +71,10 @@ const book1 = new Book(
   "Harry Potter and the Goblet of Fire",
   "J. K. Rowling",
   300,
-  "Harry Potter and the Goblet of Fire is a fantasy novel written by British author......."
+  "Harry Potter and the Goblet of Fire is a fantasy novel written by British author J. K. Rowling and the fourth novel in the Harry Potter series. It follows Harry Potter, a wizard in his fourth year at Hogwarts."
 );
 
 myLibrary.push(book1);
-console.log(myLibrary);
 
 function displayBooksFromLibrary() {
   myLibrary.forEach((book) => {
@@ -124,6 +123,8 @@ function checkFormValidation(el) {
 function displayLastBook() {
   libraryContainer.append(generateCard(myLibrary[myLibrary.length - 1]));
 }
+
+displayBooksFromLibrary();
 
 btnAddBook.addEventListener("click", () => {
   showModal();

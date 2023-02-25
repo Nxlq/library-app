@@ -17,39 +17,7 @@
       <button class="btn add-book">Add Book</button>
     </header>
     <main>
-      <div class="cards-container">
-        <div class="card">
-          <div class="card-header">
-            <h2>Harry Potter and the Goblet of Fire</h2>
-            <h3 class="card-author">by J. K. Rowling</h3>
-          </div>
-          <div class="card-body">
-            <p>
-              Harry Potter and the Goblet of Fire is a fantasy novel written by
-              British author J. K. Rowling and the fourth novel in the Harry
-              Potter series. It follows Harry Potter, a wizard in his fourth
-              year at Hogwarts School of Witchcraft and Wizardry, and the
-              mystery surrounding the entry of Harry's name into the Triwizard
-              Tournament, in which he is forced to compete.
-            </p>
-            <div class="book-stats">
-              <h3>Number of Pages:</h3>
-              <h3>Has read:</h3>
-            </div>
-            <div class="card-icons">
-              <img
-                src="images/download-ebook-svgrepo-com.svg"
-                alt="download book"
-              />
-              <img src="images/like-hand-svgrepo-com.svg" alt="like button" />
-              <img
-                src="images/favorite-book-svgrepo-com.svg"
-                alt="favorite book"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="cards-container"></div>
     </main>
     <div class="modal-bg hidden">
       <form class="modal hidden" action="" method="">
@@ -64,18 +32,21 @@
           id="title-input"
           name="book_title"
           placeholder="Book Title"
+          required
         />
         <input
           type="text"
           id="author-input"
           name="author"
           placeholder="Author's Name"
+          required
         />
         <input
           type="number"
           id="numPages-input"
           name="numOfPages"
           placeholder="Number of Pages"
+          required
         />
         <div id="description-div">
           <label for="description-input"
