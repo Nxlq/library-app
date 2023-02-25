@@ -62,8 +62,20 @@ function generateCard(book) {
   icon2.src = "images/like-hand-svgrepo-com.svg";
   const icon3 = document.createElement("img");
   icon3.src = "images/favorite-book-svgrepo-com.svg";
+  const containerHasRead = document.createElement("div");
+  containerHasRead.classList.add("container-hasRead");
+  // Children of container-hasRead
+  const hasReadLabel = document.createElement("label");
+  hasReadLabel.setAttribute("for", "hasRead");
+  hasReadLabel.textContent = "Has Read:";
+  const hasReadInput = document.createElement("input");
+  hasReadInput.setAttribute("type", "checkbox");
+  hasReadInput.setAttribute("name", "hasRead");
+  hasReadInput.setAttribute("id", "hasRead");
+  hasReadInput.classList.add("hasRead-input");
 
-  cardIcons.append(icon1, icon2, icon3);
+  containerHasRead.append(hasReadLabel, hasReadInput);
+  cardIcons.append(icon1, icon2, icon3, containerHasRead);
   bookStats.append(numberOfPages);
   cardBody.append(bookDescription, bookStats, cardIcons);
   cardHeader.append(bookTitle, author);
