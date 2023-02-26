@@ -9,7 +9,6 @@ const formInputs = document.querySelectorAll("input");
 const titleInput = document.querySelector("#title-input");
 const authorInput = document.querySelector("#author-input");
 const numPagesInput = document.querySelector("#numPages-input");
-let btnCardClose;
 
 const myLibrary = [];
 
