@@ -20,6 +20,7 @@ function Book(title, author, numOfPages, description) {
   this.author = author;
   this.numOfPages = numOfPages;
   this.description = description;
+  this.hasRead = false;
 }
 
 function generateCard(book) {
@@ -191,6 +192,7 @@ formInputs.forEach((input) =>
 );
 
 document.addEventListener("click", (e) => {
+  // handle book removal button
   if (e.target.classList.contains("onBook")) {
     console.log(e.target.closest("div"));
     const cardTitle = e.target.nextElementSibling.firstChild.textContent;
@@ -200,10 +202,21 @@ document.addEventListener("click", (e) => {
         console.log(myLibrary);
       }
     });
-
-    // also needs to remove the corresponding obj from the myLibrary arr
     e.target.closest("div").remove();
   }
+  // handle has read toggle
+  if (e.target.id === "hasRead") {
+    const inputContainer = e.target.closest("div");
+    const cardEl = inputContainer.parentElement.parentElement.parentElement; // there's got to be a better way to do this lol, will research it later
+    const cardTitle =
+      cardEl.firstChild.nextElementSibling.firstChild.textContent;
+    myLibrary.forEach((book, i) => {
+      if (book.title === cardTitle) {
+        // a cheapie solution to toggle hasRead
+        myLibrary[i].hasRead === false
+          ? (myLibrary[i].hasRead = true)
+          : (myLibrary[i].hasRead = false);
+      }
+    });
+  }
 });
-
-console.log(myLibrary);
